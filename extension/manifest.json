@@ -1,0 +1,34 @@
+{
+  "manifest_version": 2,
+  "name": "Internet Cleanup",
+  "version": "0.1",
+  "description": "Blocks malware and distraction sites with custom actions.",
+  "permissions": [
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "browser_action": {
+    "default_title": "Website Blocker",
+    "default_icon": "icon.png"
+  },
+  "web_accessible_resources": [
+    "interstitial.html",
+    "interstitial.js",
+    "icon.png"
+  ],
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}
