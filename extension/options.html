@@ -1,20 +1,106 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Website Blocker Options</title>
+  <meta charset="UTF-8">
+  <title>Web Cleanup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #222a32;
+      margin: 0;
+      padding: 8px;
+      min-width: 250px;
+      color: #bbbbbb;
+    }
+    h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #bbbbbb;
+      margin-top: 4px;
+      text-align: center;
+    }
+    .toggle {
+      display: flex;
+      align-items: center;
+      padding: 8px 0;
+    }
+    .toggle input[type="checkbox"] {
+      accent-color: #0078d4;
+      margin-right: 10px;
+      width: 18px;
+      height: 18px;
+    }
+    .toggle label {
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    .toggle select {
+      font-size: 1rem;
+      padding: 6px 10px;
+      border: 1px solid #8e8e8e;
+      border-radius: 4px;
+      background: #222a32;
+      color: #bbbbbb;
+      margin-left: 0;
+      margin-right: 10px;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .toggle select:focus {
+      border-color: #0078d4;
+    }
+    #saveStatus {
+      font-size: 0.95rem;
+      color: #0078d4;
+      margin-top: 8px;
+      display: none;
+    }
+    button {
+      background: #0078d4;
+      color: #fff;
+      border: none;
+      /* border-radius: 4px; */
+      padding: 8px 16px;
+      font-size: 1rem;
+      cursor: pointer;
+      margin-top: 10px;
+      transition: background 0.2s;
+    }
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
 </head>
 <body>
-  <h1>Blocker Settings</h1>
+  <h2>Web Cleanup</h2>
   <form id="settingsForm">
-    <label>
-      <input type="checkbox" id="blockMalware">
-      Block Malware Sites
-    </label><br>
-    <label>
+    <div class="toggle">
+      <input type="checkbox" id="blockCookies">
+      <label for="blockCookies">Cookie Popovers</label>
+    </div>
+    <div class="toggle">
+      <input type="checkbox" id="blockNewsletters">
+      <label for="blockNewsletters">Newsletter Popovers</label>
+    </div>
+    <div class="toggle" style="flex-direction:column;align-items:flex-start;">
+      <label for="archiveSites" style="font-weight:bold;margin-bottom:4px;">Redirect to Archive Site</label>
+      <select id="archiveSites">
+        <option value="archiveis">Archive.today</option>
+        <option value="wayback">Wayback Machine</option>
+      </select>
+    </div>
+    <div class="toggle">
       <input type="checkbox" id="blockDistraction">
-      Block Distraction Sites
-    </label><br>
-    <button type="submit">Save</button>
+      <label for="blockDistraction">Also Warn About Slop Sites</label>
+    </div>
+    
+  <div id="saveStatus">Settings updated!</div>
+    <div style="display:flex;flex-direction:row;">
+      <button id="reportBroken" type="button" style="background:#c99434;flex:1;border-bottom-left-radius: 4px; border-top-left-radius: 4px;">Site Broken</button>
+      <button id="suggestSite" type="button" style="background:#9f2c22;flex:1;border-top-right-radius: 4px; border-bottom-right-radius: 4px;">Report Site</button>
+    </div>
   </form>
   <script src="options.js"></script>
 </body>
